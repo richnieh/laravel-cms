@@ -44,4 +44,8 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function posts(){
+        $this->hasMany('App\Models\Post');
+    }
 }
