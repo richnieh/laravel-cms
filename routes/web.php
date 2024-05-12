@@ -7,4 +7,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('posts', PostController::class);
+
+
+Route::group(['middleware'=>'web'], function(){
+    Route::resource('posts', PostController::class);
+});
