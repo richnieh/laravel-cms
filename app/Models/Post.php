@@ -12,7 +12,16 @@ class Post extends Model
     protected $fillable = [
         'user_id',
         'title',
-        'content'
+        'content',
+        'path'
     ];
 
+    protected static function scopeDesc($query){
+        return $query->orderby('id', 'desc')->get();
+    }
+
+    public $directory = '/image/';
+    public function getPathAttribute($value){
+        return $this->directory.$value;
+    }
 }

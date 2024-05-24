@@ -48,4 +48,12 @@ class User extends Authenticatable
     public function posts(){
         $this->hasMany('App\Models\Post');
     }
+
+    public function getNameAttribute($name){
+        return ucfirst($name);
+    }
+
+    public function setNameAttribute($name){
+        return $this->attributes['name'] = ucfirst($name);
+    }
 }
